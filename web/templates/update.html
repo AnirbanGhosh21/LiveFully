@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content
+%}
+<div
+  style="
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: -10;
+  "
+  align="center"
+>
+  <h1>Go ahead! Update...</h1>
+  <br />
+  <form method="POST">
+    <div class="form-group">
+      <textarea
+        type="text"
+        id="newLog"
+        name="newLog"
+        class="form-control"
+        rows="15"
+        placeholder="Tell me how you feel..."
+      >
+{{log.text}}</textarea
+      ><br />
+      <button class="btn btn-lg btn-primary" type="submit">Save</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

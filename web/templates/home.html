@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content
+%}
+<div
+  style="
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: -10;
+  "
+  align="center"
+>
+  <h1>Hi {{ user.firstName }}!!</h1>
+  <div class="mt-4" id="Recording">
+    <button class="btn btn-success" id="start" onclick = startRecording()><i class="bi bi-mic-fill"></i> Start Recording</i>
+    </button>
+  </div>
+  <br />
+  <form method="POST">
+    <div class="form-group">
+      <textarea
+        type="text"
+        id="newLog"
+        name="newLog"
+        class="form-control"
+        rows="10"
+        placeholder="Tell me how you feel..."
+        required="true"
+      ></textarea
+      ><br />
+      <button class="btn btn-lg btn-primary" type="submit" id ="save">Save</button>
+    </div>
+  </form>
+  <script src="{{url_for('static', filename = '/js/speechRecognition.js')}}"></script>
+</div>
+{% endblock %}

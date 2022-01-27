@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %} Logs {% endblock %} {% block content
+%}
+<div style="margin-top: 10px; margin-bottom: 15%">
+  {% for log in logs %}
+  <div class="card" style="margin-top: 10px">
+    <div class="card-header">
+      <b>Date: </b>{{log.dateCreated.date()}}&nbsp;&nbsp;&nbsp;&nbsp;
+      <b>Time: </b>{{ log.dateCreated.time().hour }}:{{
+      log.dateCreated.time().minute}}<br />
+    </div>
+    <div class="card-body">
+      {{log.text}}<br /><br />
+      <div>
+        <div class="row">
+          <div class="col" style="font-size: 15px">
+            <b>Tags:</b><i> {{log.tags}}</i>
+          </div>
+          <div class="col-8" align="right">
+            <a href="/update/{{log.id}}" class="btn btn-primary">Update</a>
+            <a href="/delete/{{log.id}}" class="btn btn-primary">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
